@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Microsecond Madness</title>
+    <style>
+        body {
+            background: black;
+            color: cyan;
+            font-family: monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-size: 2.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="counter">0</div>
+
+    <script>
+        let counter = 0;
+        const el = document.getElementById("counter");
+
+        function goFast() {
+            const now = performance.now();
+            while (performance.now() - now < 1) {
+                counter++;
+            }
+            el.textContent = counter;
+            requestAnimationFrame(goFast);
+        }
+
+        goFast();
+    </script>
+</body>
+</html>
