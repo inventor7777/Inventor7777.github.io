@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JavaScript Integer Meltdown</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #0f0;
+      font-family: monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    #counter {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    #explanation {
+      max-width: 600px;
+      font-size: 1rem;
+      color: #aaa;
+      padding: 0 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="counter"></div>
+  <div id="explanation">
+    You're witnessing JavaScript's <code>Number.MAX_SAFE_INTEGER</code> unravel in real time.
+    JavaScript uses IEEE 754 double-precision floats for *all* numbers, which means integers beyond 
+    <code>9,007,199,254,740,992</code> are unsafe and may silently become inaccurate.
+    <br><br>
+    This counter started just 25 steps before the danger zone. Every 500ms, it marches deeper into
+    **floating-point betrayal**. Once additions stop changing the number? You've officially reached **math lies**.
+  </div>
+
+  <script>
+    let count = Number.MAX_SAFE_INTEGER - 25;
+
+    function update() {
+      document.getElementById("counter").textContent = `🧮 Count: ${count}`;
+      count++;
+    }
+
+    update();
+    setInterval(update, 500);
+  </script>
+
+</body>
+</html>
