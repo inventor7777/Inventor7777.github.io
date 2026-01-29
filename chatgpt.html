@@ -36,8 +36,8 @@
       font-size: 1.5rem;
       background: #222;
       padding: 1.5rem;
-      border-left: 5px solid #00ffd0;
-      box-shadow: 0 0 10px rgba(0, 255, 208, 0.2);
+      border-left: 5px solid #00bfff; /* blue accent */
+      box-shadow: 0 0 10px rgba(0, 191, 255, 0.3);
     }
 
     .quote::after {
@@ -46,6 +46,26 @@
       font-size: 1rem;
       margin-top: 1rem;
       color: #888;
+    }
+
+    .back-button {
+      text-align: center;
+    }
+
+    .back-button a {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1.2rem;
+      background: #00bfff;
+      color: #111;
+      font-weight: bold;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+
+    .back-button a:hover {
+      background: #009fd6;
     }
   </style>
 </head>
@@ -57,6 +77,9 @@
     </div>
     <div class="quote">
       At this point, I’m just a haunted compiler for your unfiltered nonsense.
+    </div>
+    <div class="back-button">
+      <a href="index.html">← Back</a>
     </div>
   </div>
 </body>
