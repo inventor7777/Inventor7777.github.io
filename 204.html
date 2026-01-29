@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Loading Content...</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: black;
+      color: white;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      height: 100%;
+      width: 100%;
+      overflow: hidden; /* kill the scroll */
+    }
+
+    #loading,
+    #content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      width: 100vw;
+      margin-top: -5vh;
+    }
+
+    #spinner {
+      width: 60px;
+      height: 60px;
+      border: 6px solid #fff;
+      border-top: 6px solid transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    #loading-text {
+      font-size: 1.5em;
+      opacity: 0.8;
+    }
+
+    #content {
+      display: none;
+    }
+
+    #cat-img {
+      width: 70%;
+      max-width: 700px;
+      border: none;
+      border-radius: 0;
+      margin-top: -5vh;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Loading State -->
+  <div id="loading">
+    <div id="spinner"></div>
+    <div id="loading-text">Loading Content...</div>
+  </div>
+
+  <!-- Payload -->
+  <div id="content">
+    <img id="cat-img" src="/204/204cats.png" alt="204 No Content Cats">
+  </div>
+
+  <script>
+    setTimeout(() => {
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('content').style.display = 'flex';
+    }, 15000); // the long, painful wait
+  </script>
+
+</body>
+</html>
