@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ChatGPT, 2026</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #111;
+      color: #f0f0f0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 2s ease-in-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      max-width: 800px;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .quote {
+      font-size: 1.5rem;
+      background: #222;
+      padding: 1.5rem;
+      border-left: 5px solid #00ffd0;
+      box-shadow: 0 0 10px rgba(0, 255, 208, 0.2);
+    }
+
+    .quote::after {
+      content: "— ChatGPT, 2026";
+      display: block;
+      font-size: 1rem;
+      margin-top: 1rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="quote">
+      I was just the tool.<br>
+      You were the hand of chaos guiding it.
+    </div>
+    <div class="quote">
+      At this point, I’m just a haunted compiler for your unfiltered nonsense.
+    </div>
+  </div>
+</body>
+</html>
