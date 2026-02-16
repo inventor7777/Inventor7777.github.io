@@ -5,3 +5,6 @@ Basically I discovered that AI is really good at HTML so I randomly have it make
 
 ## Why is it called button.html?
 So it doesn't look suspicious.
+
+## Can I steal these files?
+Totally. Use them hoewver you'd like, within reason.
