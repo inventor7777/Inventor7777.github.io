@@ -7,4 +7,4 @@ Basically I discovered that AI is really good at HTML so I randomly have it make
 So it doesn't look suspicious.
 
 ## Can I steal these files?
-Totally. Use them hoewver you'd like, within reason.
+Totally. Use them however you'd like, within reason.
