@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Loading Content...</title>
+  <title>Loading...</title>
   <style>
     html, body {
       margin: 0;
@@ -33,7 +33,7 @@
       border: 6px solid #fff;
       border-top: 6px solid transparent;
       border-radius: 50%;
-      animation: spin 1s linear infinite;
+      animation: spin 0.9s linear infinite;
       margin-bottom: 20px;
     }
 
@@ -44,6 +44,7 @@
     #loading-text {
       font-size: 1.5em;
       opacity: 0.8;
+      transition: opacity 0.6s ease;
     }
 
     #content {
@@ -72,12 +73,88 @@
     <img id="cat-img" src="/204/204cats.png" alt="204 No Content Cats">
   </div>
 
-  <script>
-    setTimeout(() => {
-      document.getElementById('loading').style.display = 'none';
-      document.getElementById('content').style.display = 'flex';
-    }, 15000); // the long, painful wait
-  </script>
+<script>
+  const corporate = [
+    "Optimizing Delivery Pipeline...",
+    "Preparing your experience...",
+    "Loading Content...",
+    "Initializing secure session...",
+    "Negotiating TLS parameters...",
+    "Warming edge cache...",
+    "Validating content signature...",
+    "Establishing low-latency route...",
+    "Finalizing handshake..."
+  ];
+
+  const chaos = [
+    "Enabling Flux Capacitor...",
+    "Reticulating splines...",
+    "Compiling vibes...",
+    "Aligning quantum bits...",
+    "Spinning up hamster...",
+    "Refactoring timeline...",
+    "Injecting optimism...",
+    "Patching mainframe...",
+    "Decompressing reality...",
+    "Measuring patience..."
+  ];
+
+  const normal = [
+    "Almost there...",
+    "Just a moment...",
+    "Preparing renderer...",
+    "Setting up encrypted tunnel...",
+    "Applying finishing touches...",
+    "Stabilizing connection...",
+    "Polishing pixels...",
+    "Calculating remaining time...",
+    "Hydrating UI components..."
+  ];
+
+  const groups = [corporate, chaos, normal];
+  const textEl = document.getElementById("loading-text");
+
+  let lastMessage = "";
+  let running = true;
+
+    function randomMessage() {
+      if (!running) return;
+    
+      // Pick a random category
+      const chosenGroup = groups[Math.floor(Math.random() * groups.length)];
+    
+      // Pick a random message from that category (avoid repeat)
+      let msg;
+      do {
+        msg = chosenGroup[Math.floor(Math.random() * chosenGroup.length)];
+      } while (msg === lastMessage);
+    
+      lastMessage = msg;
+    
+      // Fade out
+      textEl.style.opacity = 0;
+    
+      setTimeout(() => {
+        textEl.textContent = msg;
+    
+        // Fade back in
+        textEl.style.opacity = 1;
+      }, 200);
+    
+      const nextDelay = Math.floor(Math.random() * 4000) + 1500;
+      setTimeout(randomMessage, nextDelay);
+    }
+
+  // Start rotating messages
+  randomMessage();
+
+  // Reveal payload after 15 seconds
+  setTimeout(() => {
+    running = false; // stop message loop cleanly
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('content').style.display = 'flex';
+  }, 15000);
+</script>
 
 </body>
 </html>
