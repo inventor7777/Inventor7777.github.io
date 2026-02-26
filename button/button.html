@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Error</title>
+<title>Loading...</title>
 
 <style>
 html, body {
@@ -12,6 +12,7 @@ html, body {
     background: black;
     width: 100%;
     height: 100%;
+    font-family: system-ui, -apple-system, sans-serif;
 }
 
 #container {
@@ -28,24 +29,96 @@ video {
     display: none;
 }
 
-#error {
+video.visible {
+    display: block;
+}
+
+/* Overlay */
+#overlay {
     position: absolute;
     inset: 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-family: system-ui, -apple-system, sans-serif;
-    color: white;
     background: black;
+    color: white;
 }
 
-#error button {
+#overlay.hidden {
+    display: none;
+}
+
+/* Spinner */
+#spinner {
+    width: 42px;
+    height: 42px;
+    border: 4px solid #333;
+    border-top: 4px solid white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    opacity: 0;
+    transition: opacity 1000ms ease;
+}
+
+#spinner.visible {
+    opacity: 1;
+}
+
+#spinner.hidden {
+    display: none;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Button */
+button {
+    margin-top: 20px;
     font-size: 18px;
-    padding: 14px 22px;
-    background: #222;
+    padding: 16px 26px;
+    background: #1c1c1c;
     color: white;
-    border: 1px solid #555;
-    border-radius: 6px;
+    border: 1px solid #444;
+    border-radius: 14px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #2a2a2a;
+}
+
+button.hidden {
+    display: none;
+}
+
+/* GitHub link */
+#github {
+    position: absolute;
+    bottom: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    color: #888;
+    text-decoration: none;
+    display: none;
+    align-items: center;
+    gap: 6px;
+}
+
+#github.visible {
+    display: flex;
+}
+
+#github:hover {
+    color: white;
+}
+
+#github svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
 }
 </style>
 </head>
@@ -57,19 +130,81 @@ video {
         <source src="rick.mp4" type="video/mp4">
     </video>
 
-    <div id="error">
-        <button>There was an error loading this page. Tap to reload.</button>
+    <div id="overlay">
+        <div id="spinner" aria-hidden="true"></div>
+        <button id="playBtn" class="hidden" aria-live="polite"></button>
     </div>
+
+    <a id="github" href="https://github.com/inventor7777/Inventor7777.github.io" target="_blank" rel="noopener">
+        GitHub
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3zM5 5h6v2H7v10h10v-4h2v6H5V5z"/>
+        </svg>
+    </a>
 </div>
 
 <script>
-const video = document.getElementById('rick');
-const error = document.getElementById('error');
+document.addEventListener("DOMContentLoaded", () => {
 
-error.addEventListener('click', () => {
-    error.style.display = 'none';
-    video.style.display = 'block';
-    video.play();
+    const video = document.getElementById('rick');
+    const overlay = document.getElementById('overlay');
+    const playBtn = document.getElementById('playBtn');
+    const spinner = document.getElementById('spinner');
+    const github = document.getElementById('github');
+
+    const messages = [
+        "There was an error loading this page.",
+        "Connection timed out.",
+        "Server returned an unexpected response.",
+        "Rendering engine failed.",
+        "Content delivery network unreachable.",
+        "Request aborted due to protocol mismatch."
+    ];
+
+    let started = false;
+
+    // Trigger spinner fade-in cleanly
+    requestAnimationFrame(() => {
+        spinner.classList.add("visible");
+    });
+
+    // After delay, hide spinner and show error button
+    setTimeout(() => {
+        spinner.classList.add("hidden");
+
+        const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+        playBtn.textContent = randomMessage + " Tap to reload.";
+
+        playBtn.classList.remove("hidden");
+    }, 1200);
+
+    function startRickroll() {
+        if (started) return;
+        started = true;
+
+        overlay.classList.add("hidden");
+        video.classList.add("visible");
+        github.classList.add("visible");
+
+        if (navigator.vibrate) {
+            navigator.vibrate([120, 100, 120, 100, 120, 100, 120, 100, 120, 300, 300]);
+        }
+
+        document.title = "Never Gonna Give You Up";
+
+        setTimeout(() => {
+            video.play();
+        }, 150);
+    }
+
+    playBtn.addEventListener("click", startRickroll);
+
+    document.addEventListener("keydown", () => {
+        if (!started) {
+            startRickroll();
+        }
+    });
+
 });
 </script>
 
