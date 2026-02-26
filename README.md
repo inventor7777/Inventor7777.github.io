@@ -13,18 +13,16 @@ Totally. Use them however you'd like, within reason.
 Awesome! If you have a moment to spare, consider opening a discussion about how you found it! I also have NGINX logs if you did :)
 <details>
 <summary>Where can I visit the self hosted one?</summary>
-
   
 Currently, you can find the local, full resolution version at http://174.75.97.159:1200
 
-Please be repectful of my **40Mbps** cable upload apeed hahaha
+Please be respectful of my **40Mbps** cable upload speed hahaha
 
 </details>
 
 <details>
 <summary>Self Hosted Server Info</summary>
 
-  
 The server is a **Lenovo ThinkCentre M710q** running Ubuntu 22.04 and Nginx.
 
 It runs a lot of things, and I thought it would be funny to have a Rickroll server too.
