@@ -23,7 +23,7 @@ Please be respectful of my **40Mbps** cable upload speed hahaha
 <details>
 <summary>Self Hosted Server Info</summary>
 
-The server is a **Lenovo ThinkCentre M710q** running Ubuntu 22.04 and Nginx.
+The server is a **Lenovo ThinkCentre M710q** running Ubuntu 24.04.4 LTS and Nginx.
 
 It runs a lot of things, and I thought it would be funny to have a Rickroll server too.
 - 20k RPS tested
