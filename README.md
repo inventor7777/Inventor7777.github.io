@@ -14,7 +14,7 @@ Awesome! If you have a moment to spare, consider opening a discussion about how 
 <details>
 <summary>Where can I visit the self hosted one?</summary>
   
-Currently, you can find the local, full resolution version at http://24.254.36.1:1200
+Currently, you can find the local, full resolution version at http://24.254.37.141:1200
 
 Please be respectful of my **40Mbps** cable upload speed hahaha
 
