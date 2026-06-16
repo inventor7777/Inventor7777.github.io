@@ -1,7 +1,5 @@
-# WARNING - MEMES
-
 ## This stuff is totally random
-Basically I discovered that AI is really good at HTML so I randomly have it make me sites and I post most here. 
+It could be files for hosting. It could be AI HTMLs. It could be walls of text. 
 
 ## Why is it called button.html?
 So it doesn't look suspicious in a link.
@@ -23,7 +21,7 @@ Please be respectful of my **40Mbps** cable upload speed hahaha
 <details>
 <summary>Self Hosted Server Info</summary>
 
-The server is a **Lenovo ThinkCentre M710q** running Ubuntu 24.04.4 LTS and Nginx.
+The server is a **Lenovo ThinkCentre M73** running Ubuntu 26.10 and Nginx.
 
 It runs a lot of things, and I thought it would be funny to have a Rickroll server too.
 - 20k RPS tested
