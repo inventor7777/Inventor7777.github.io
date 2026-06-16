@@ -3,81 +3,310 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>HTML Lab of Doom and Vibecoding</title>
+  <title>Inventor7777</title>
+  <link rel="icon" href="favicon.ico" sizes="any" />
   <style>
+    :root {
+      color-scheme: dark;
+      --bg: #10151b;
+      --bg-accent: #172330;
+      --panel: rgba(17, 24, 34, 0.86);
+      --panel-strong: rgba(24, 35, 49, 0.96);
+      --border: rgba(255, 166, 77, 0.18);
+      --text: #eef4fb;
+      --muted: #9aacbf;
+      --accent: #ff9c43;
+      --accent-strong: #ff8c00;
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+      --tile-glow: 0 0 0 1px rgba(255, 166, 77, 0.16), 0 0 24px rgba(255, 140, 0, 0.25), 0 18px 40px rgba(0, 0, 0, 0.24);
+      --tile-glow-hover: 0 0 0 1px rgba(255, 166, 77, 0.24), 0 0 32px rgba(255, 140, 0, 0.32), 0 20px 42px rgba(0, 0, 0, 0.26);
+      --title-bg: rgba(11, 17, 24, 0.7);
+      --tile-bg: rgba(18, 26, 36, 0.96);
+      --title-link-green: #ffb874;
+    }
+
+    body[data-theme="light"] {
+      color-scheme: light;
+      --bg: #f4f6f4;
+      --bg-accent: #fafcf9;
+      --panel: rgba(255, 255, 255, 0.86);
+      --panel-strong: rgba(246, 251, 246, 0.96);
+      --border: rgba(255, 166, 77, 0.16);
+      --text: #152119;
+      --muted: #506456;
+      --accent: #d97d24;
+      --accent-strong: #b86312;
+      --shadow: 0 18px 50px rgba(80, 58, 30, 0.12);
+      --tile-glow: 0 0 0 1px rgba(255, 166, 77, 0.12), 0 0 24px rgba(255, 140, 0, 0.18), 0 18px 36px rgba(80, 58, 30, 0.1);
+      --tile-glow-hover: 0 0 0 1px rgba(255, 166, 77, 0.18), 0 0 32px rgba(255, 140, 0, 0.24), 0 20px 42px rgba(80, 58, 30, 0.14);
+      --title-bg: rgba(249, 250, 249, 0.88);
+      --tile-bg: rgba(255, 255, 255, 0.95);
+      --title-link-green: #c96f17;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      padding: 2rem;
-      font-family: system-ui, -apple-system, sans-serif;
-      background: #121212;
-      color: #f0f0f0;
+      min-height: 100vh;
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(255, 140, 0, 0.14), transparent 32%),
+        linear-gradient(180deg, var(--bg-accent) 0%, var(--bg) 52%, var(--bg) 100%);
+      color: var(--text);
       opacity: 0;
       animation: fadeIn 1.5s ease-in-out 0.5s forwards;
+      transition: background 0.2s ease, color 0.2s ease;
     }
+
+    body[data-theme="light"] {
+      background:
+        linear-gradient(180deg, var(--bg-accent) 0%, var(--bg) 52%, var(--bg) 100%);
+    }
+
     @keyframes fadeIn {
       to { opacity: 1; }
     }
 
-    h1 {
-      text-align: center;
-      margin-bottom: 0.5rem;
-      font-size: 2rem;
-      color: #00bfff;
+    .page-shell {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
-    .blurb {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #aaa;
-      margin-bottom: 2rem;
+    .title-bar {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      width: 100%;
+      background: var(--title-bg);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(14px);
     }
 
-    .blurb a {
-      color: #888;
+    .title-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      flex: 0 0 auto;
+      min-width: 0;
+    }
+
+    .theme-toggle {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+      line-height: 0;
+      border-radius: 12px;
+    }
+
+    .theme-toggle:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .theme-toggle img {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .title-bar h1 {
+      margin: 0;
+      font-size: clamp(1.4rem, 2vw, 1.9rem);
+      letter-spacing: 0.04em;
+      font-family: "SFMono-Regular", "Menlo", "Consolas", "Liberation Mono", monospace;
+    }
+
+    .title-links {
+      margin-left: auto;
+      min-width: 0;
+      text-align: right;
+      color: var(--muted);
+      font-size: 0.93rem;
+      line-height: 1.7;
+      font-family: "SFMono-Regular", "Menlo", "Consolas", "Liberation Mono", monospace;
+    }
+
+    .title-links a {
+      color: var(--title-link-green);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .title-links a:hover {
       text-decoration: underline;
     }
 
-    ul {
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: min(1100px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+
+    .project-list {
       list-style: none;
       padding: 0;
-      max-width: 600px;
-      margin: 0 auto;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
     }
 
-    li {
-      background: #1e1e1e;
-      padding: 1rem 1.5rem;
-      margin-bottom: 1rem;
-      border-radius: 8px;
-      transition: background 0.2s ease;
-      cursor: pointer;
+    .project-list li {
+      min-width: 0;
     }
 
-    li:hover {
-      background: #2a2a2a;
-    }
-
-    a {
+    .project-list a {
       color: inherit;
       text-decoration: none;
       display: block;
-      font-size: 1.2rem;
+      font-size: 1.15rem;
+      padding: 1.2rem 1.35rem;
+      background: var(--tile-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--tile-glow);
+      transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .project-list a:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 166, 77, 0.42);
+      box-shadow: var(--tile-glow-hover);
+    }
+
+    .project-list span {
+      display: block;
+      margin-top: 0.4rem;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .footer {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      width: min(1100px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 1.5rem 0 0.5rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer a {
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: color 0.18s ease, border-color 0.18s ease;
+    }
+
+    .footer a:hover {
+      color: var(--accent);
+      border-color: rgba(255, 166, 77, 0.45);
+    }
+
+    @media (max-width: 720px) {
+      .title-bar {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 0.9rem 1rem;
+      }
+
+      .title-links {
+        margin-left: 0;
+        text-align: left;
+      }
+
+      .content {
+        width: min(100% - 1rem, 1100px);
+        padding: 1.5rem 0;
+      }
+
+      .footer {
+        width: min(100% - 1rem, 1100px);
+      }
+
+      .project-list {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="page-shell">
+    <header class="title-bar">
+      <div class="title-brand">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle light and dark theme" title="Toggle theme">
+          <img src="donut.png" alt="Inventor7777 logo" />
+        </button>
+        <h1>Inventor7777</h1>
+      </div>
+      <div class="title-links">
+        <a href="https://github.com/inventor7777/syslog-flow" target="_blank" rel="noreferrer noopener">syslog-flow</a> -
+        <a href="https://github.com/inventor7777/ESPHome-Configs" target="_blank" rel="noreferrer noopener">ESPHome-Configs</a> -
+        <a href="https://github.com/inventor7777/ha-simple-button-card" target="_blank" rel="noreferrer noopener">ha-simple-button-card</a> -
+        <a href="https://github.com/inventor7777/ha-pi-hole-slim-card" target="_blank" rel="noreferrer noopener">ha-pi-hole-slim-card</a> -
+        <a href="https://github.com/inventor7777/ha-status-grid-card" target="_blank" rel="noreferrer noopener">ha-status-grid-card</a> -
+        <a href="https://github.com/inventor7777/ultraloq-ble-ha" target="_blank" rel="noreferrer noopener">ultraloq-ble-ha</a> -
+        <a href="https://github.com/inventor7777/improved-beszel-ha" target="_blank" rel="noreferrer noopener">improved-beszel-ha</a>
+      </div>
+    </header>
 
-  <h1>HTML Lab of Vibecoding and Randomness</h1>
-  <div class="blurb">
-    Created by Inventor7777 on a whim, powered by <a href="chatgpt.html">ChatGPT lol</a>
+    <main class="content">
+      <ul class="project-list">
+        <li><a href="counter.html">Counter<span>A counter. Nothing more</span></a></li>
+        <li><a href="javamax.html">Java Max Number<span>Watch JavaScript hit a limit</span></a></li>
+        <li><a href="204/204.html">204<span>Be patient. It's worth it</span></a></li>
+        <li><a href="button/button.html">Rickroll<span>The most honest button you'll meet</span></a></li>
+      </ul>
+    </main>
+
+    <footer class="footer">
+      <a href="chatgpt.html">Random projects, random thoughts</a>
+      <a href="https://github.com/inventor7777/Inventor7777.github.io">inventor7777/Inventor7777.github.io</a>
+    </footer>
   </div>
+  <script>
+    const storageKey = "inventor7777-theme";
+    const themeToggle = document.getElementById("theme-toggle");
+    const systemTheme = window.matchMedia("(prefers-color-scheme: light)");
 
-  <ul>
-    <li><a href="counter.html">Counter</a></li>
-    <li><a href="javamax.html">Java Max Number</a></li>
-    <li><a href="204/204.html">204</a></li>
-    <li><a href="button/button.html">Rickroll</a></li>
-  </ul>
+    function applyTheme(theme) {
+      document.body.dataset.theme = theme;
+    }
 
+    const savedTheme = localStorage.getItem(storageKey);
+    if (savedTheme === "light" || savedTheme === "dark") {
+      applyTheme(savedTheme);
+    } else {
+      applyTheme(systemTheme.matches ? "light" : "dark");
+    }
+
+    themeToggle.addEventListener("click", () => {
+      const nextTheme = document.body.dataset.theme === "dark" ? "light" : "dark";
+      localStorage.setItem(storageKey, nextTheme);
+      applyTheme(nextTheme);
+    });
+
+    systemTheme.addEventListener("change", (event) => {
+      localStorage.removeItem(storageKey);
+      applyTheme(event.matches ? "light" : "dark");
+    });
+  </script>
 </body>
 </html>
