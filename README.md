@@ -1,11 +1,11 @@
-## This stuff is totally random
+## The site
 It could be files for hosting. It could be AI HTMLs. It could be walls of text. 
 
-## Why is it called button.html?
-So it doesn't look suspicious in a link.
+## The files
+Normal cloud storage links suck, and I can't host them myself due to upload speed. So, I upload videos here when I need to share simple links.
 
-## Can I steal these files?
-Totally. Use them however you'd like, within reason.
+## The Rickroll
+Why is it called button.html? So it doesn't look suspicious in a link.
 
 ## Found this from my WAN IP?
 Awesome! If you have a moment to spare, consider opening a discussion about how you found it! I also have NGINX logs if you did :)
