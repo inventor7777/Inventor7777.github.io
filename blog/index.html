@@ -1,0 +1,8 @@
+---
+layout: default
+title: Blog
+section: blog
+---
+<section class="page-heading"><h1>My writeups</em></h1><p class="intro">Don't expect a 5000 word essay, but here's where I write about stuff I find interesting.</p></section>
+<section aria-labelledby="posts-heading"><div class="section-heading"><h2 id="posts-heading">All posts</h2></div>
+<div class="post-list">{% for post in site.posts %}<a class="post-row" href="{{ post.url | relative_url }}"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%b %-d, %Y' }}</time><div><h2>{{ post.title | escape }}</h2><p>{{ post.excerpt | strip_html | normalize_whitespace | escape }}</p></div><span aria-hidden="true">↗</span></a>{% else %}<div class="empty-state"><span class="eyebrow">A FRESH PAGE</span><h2>Something to write home about.</h2><p>No posts yet. Check back for the first entry.</p><a href="{{ '/projects/' | relative_url }}">Explore the projects in the meantime →</a></div>{% endfor %}</div></section>

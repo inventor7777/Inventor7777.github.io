@@ -1,0 +1,31 @@
+media:
+  input: assets/uploads
+  output: /assets/uploads
+content:
+  - name: posts
+    label: Blog posts
+    type: collection
+    path: _posts
+    format: yaml-frontmatter
+    filename: "{year}-{month}-{day}-{primary}.md"
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: date
+        label: Publish date
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: excerpt
+        label: Short description
+        type: text
+      - name: published
+        label: Published
+        type: boolean
+        default: false
+      - name: body
+        label: Post
+        type: rich-text

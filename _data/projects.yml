@@ -1,0 +1,14 @@
+- name: syslog-flow
+  url: https://github.com/inventor7777/syslog-flow
+- name: ultraloq-ble-ha
+  url: https://github.com/inventor7777/ultraloq-ble-ha
+- name: ESPHome-Configs
+  url: https://github.com/inventor7777/ESPHome-Configs
+- name: improved-beszel-ha
+  url: https://github.com/inventor7777/improved-beszel-ha
+- name: ha-simple-button-card
+  url: https://github.com/inventor7777/ha-simple-button-card
+- name: ha-pi-hole-slim-card
+  url: https://github.com/inventor7777/ha-pi-hole-slim-card
+- name: ha-status-grid-card
+  url: https://github.com/inventor7777/ha-status-grid-card

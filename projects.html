@@ -1,0 +1,15 @@
+---
+layout: default
+title: Projects
+section: projects
+permalink: /projects/
+---
+<section class="page-heading"><h1>Software projects</h1><p class="intro">Software keeps annoying me and I keep asking AI to fix it. Then I have to go and remove half of the useless hero text and rewrite all the documentation.</p></section>
+<section aria-labelledby="open-source"><div class="section-heading"><h2 id="open-source">On GitHub</h2></div>
+<ul class="project-grid">{% for project in site.data.projects %}<li><a class="project-card" href="{{ project.url | escape }}"><span class="project-icon" aria-hidden="true">↗</span><h3>{{ project.name | escape }}</h3><p>View repository on GitHub</p></a></li>{% endfor %}</ul></section>
+<section class="experiments" aria-labelledby="experiments"><div class="section-heading"><h2 id="experiments">Just for fun</h2></div><ul class="project-grid">
+<li><a class="project-card" href="{{ '/counter.html' | relative_url }}"><h3>Counter <span aria-hidden="true">→</span></h3><p>A counter. It counts. Revolutionary.</p></a></li>
+<li><a class="project-card" href="{{ '/javamax.html' | relative_url }}"><h3>Java Max Number <span aria-hidden="true">→</span></h3><p>Watch JavaScript hit a limit.</p></a></li>
+<li><a class="project-card" href="{{ '/204/204.html' | relative_url }}"><h3>204 <span aria-hidden="true">→</span></h3><p>Be patient. It's worth it. Probably.</p></a></li>
+<li><a class="project-card" href="{{ '/button/button.html' | relative_url }}"><h3>Rickroll <span aria-hidden="true">→</span></h3><p>The most honest button you'll meet.</p></a></li>
+</ul></section>

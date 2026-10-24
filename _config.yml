@@ -1,0 +1,20 @@
+title: Inventor7777
+description: Projects, experiments, and notes along the way.
+url: "https://inventor7777.github.io"
+baseurl: ""
+timezone: America/Chicago
+permalink: /blog/:year/:month/:day/:title/
+markdown: kramdown
+highlighter: rouge
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - tests
