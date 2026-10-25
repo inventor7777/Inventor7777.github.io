@@ -45,7 +45,7 @@ Linux BAICHUAN 4.19.91 #1 PREEMPT Mon Mar 10 12:29:22 CST 2025 armv7l GNU/Linux
 
 ## The Linux bug has bitten
 
-Now that I had SSH access on one camera, I had an insatiable urge to continue to the RLC-1240A, my Duos, and even the doorbells. The process was more or less the same on each camera, the only main differences being Reolink's apparent need to have a different packaging and filesystem layout on *every single* camera model.
+Now that I had SSH access on one camera, I had an insatiable urge to continue to the RLC-1240A, Duos, and even the doorbells. The process was more or less the same on each camera, the only main differences being Reolink's apparent need to have a different packaging and filesystem layout on *every single* camera model.
 
 ## RLC-840A
 
