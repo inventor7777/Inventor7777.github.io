@@ -1,6 +1,6 @@
 ---
 title: "My Reolink cameras didn't have SSH, so I fixed that (In one day)"
-excerpt: "Why leave a Linux shell hidden inside a camera?"
+excerpt: "Why leave a perfectly good Linux shell hidden inside a camera?"
 ---
 
 I have 11 Reolink cameras of various models, all PoE. They each record to their own 256GB high endurance microSD card. They were easy to set up, never have any problems, the video quality is phenomenal...but they have Linux with no SSH. TERRIBLE!
